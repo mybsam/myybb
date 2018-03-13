@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='description' content="马永邦的个人网站">
+	<meta name="keywords" content="马永邦,个人网站">
+	<meta name="author" content="马永邦">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="icon" href="https://wx1.sinaimg.cn/mw690/006eg0Kbgy1fp4bty4o6dj303w03w0sm.jpg" type="image/x-icon">
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?f19f7a9135edf54e69ce3c97e903c434";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	
+	<style>
+	    #fff a {
+			color:grey;
+		}
+		#fff a:hover {
+			color:#64c54c;
+		}
+		.achange a {
+			color:grey;
+		}
+		.achange a:hover {
+			font-weight:bold;
+		}
+
+		@media only screen and (max-width:700px){.footer{display:none}}	
+	</style>	
+</head>
+<body style="background-color:#f6f6f6">
+	<div class="container-fluid">
+		{% include 'header.html' %}
+		{%block content %}{% endblock %}
+		{% include 'footer.html' %}
+	</div>
+				
+</body>
+</html>

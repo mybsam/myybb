@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}{{article.title}}-马永邦的个人网站{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-sm-2" style="border-right:1px solid #e4e4e4">
+			<div style="border:1px solid #e4e4e4">
+				<div style="font-size:18px;padding-left:20px;background-color:#e1e1e1">目录</div>
+				<div class="achange" style="padding:4px;background-color:#fff;font-size:15px;color:#545454">
+					<ul class="nav flex-column">
+						{% for post in posts %}
+							<li id="{{post.slug}}" class="nav-item" style="background-color:#f4f4f4;border-bottom:1px solid #e9e9e9;padding:0px;line-height:1.1">
+								<a class="nav-link" href='/category/passage/{{post.slug}}'>{{post.title}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7" style="border-right:1px solid #e4e4e4">
+			<div style="font-size:14px;padding:10px 30px;border:1px #e4e4e4 solid;background-color:#fbfbfb;color:#8590a6;line-height:24px;overflow:hidden">
+				<div class="leftpassage" style="float:left;">
+					<span class="fa fa-arrow-left"></span>
+					<a class="aaa1" href="#" style="color:#8590a6"></a>
+				</div>
+				
+				<div class="rightpassage" style="float:right">
+					<span class="fa fa-arrow-right"></span>
+					<a class="aaa2" href="#" style="color:#8590a6"></a>
+				</div>
+			</div>
+			<div style="background-color:#fff">
+				<div style="padding:10px 10px 20px 10px">
+					<div style="border-bottom:1px #e4e4e4 solid;padding-bottom:10px">
+						<div style="color:#000;font-size:20px;line-height:2.4">{{article.title}}</div>
+						<div style="color:#747474;font-size:13px">阅读量：&nbsp;&nbsp;发表日期: {{article.pub_date |date:"Y.m.d"}}</div>
+					</div>
+					<div style="color:#333;padding-top:10px;font-size:15px;line-height:1.8em;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">{{article.body | safe }}</div>
+
+				</div>
+			</div>
+			<div style="font-size:14px;padding:10px 30px;border:1px #e4e4e4 solid;background-color:#fbfbfb;color:#8590a6;line-height:24px;overflow:hidden">
+				<div class="leftpassage" style="float:left;">
+					<span class="fa fa-arrow-left"></span>
+					<a class="aaa1" href="#" style="color:#8590a6"></a>
+				</div>
+				
+				<div class="rightpassage" style="float:right">
+					<span class="fa fa-arrow-right"></span>
+					<a class="aaa2" href="#" style="color:#8590a6"></a>
+				</div>
+			</div>
+			<div style="padding:10px 20px 0px 10px;overflow:hidden;" class="bdsharebuttonbox">	
+				<a style="float:right;" href="#" class="bds_more" data-cmd="more"></a>			
+				<a style="float:right;" href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a style="float:right;" href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+			</div>
+				
+			
+		</div>
+		<div class="col-sm-3">
+			<div style="font-size:18px;background-color:#e3e3e3;text-align:center;line-height:3;font-weight:900;color:#8590a6">个人动态</div>
+			<div style="padding:4px;background-color:#fff;font-size:15px;color:#545454">
+				<ul class="nav flex-column">
+					<li class="nav-item" style="background-color:#f4f4f4;border-bottom:1px solid #e9e9e9;line-height:1.1">
+						<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=450 src="//music.163.com/outchain/player?type=0&id=906145913&auto=0&height=430"></iframe>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('#{{article.slug}}>a').css({'background-color':"rgb(150, 185, 125)",'font-weight':"bold",'color':"white"});
+		
+		var a=$('#{{article.slug}}+li>a');
+		var atext=a.text();
+		var ahref=a.attr('href');
+		$('a.aaa2').text(atext);
+		$('a.aaa2').attr('href',ahref);
+		if (atext==''){
+			$('div.rightpassage').remove();
+		};
+		var b=$('#{{article.slug}}').prev().children('a');
+		var btext=b.text();
+		var bhref=b.attr('href');
+		$('a.aaa1').text(btext);
+		$('a.aaa1').attr('href',bhref);
+		if (btext==''){
+			$('div.leftpassage').remove();
+		};
+    </script>
+	
+	<script>
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+	
+	
+{% endblock %}
+		
+

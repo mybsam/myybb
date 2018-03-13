@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}马永邦的个人网站{% endblock %}
+{% block content %}
+	</br>
+	<div class="row">
+		<div class="col-sm-4">
+			<img class="img-fluid" src="https://wx2.sinaimg.cn/mw690/006eg0Kbgy1fp4bsinudjj30dw0op0u0.jpg">
+		</div>
+		<div class="col-sm-4" style="text-align:center;background:white">
+			<br>
+			<br>
+			<br>
+			<h2>欢迎来到我的网站</h2>
+			<div>
+				<a style="color:#333" href="/category/passage/website_description">阅读我的文章</a><span> | <span> <a>查看我的资料</a>
+			</div>
+			<br>
+			<h5 style="line-height:2.3;width:80%;margin:auto;text-align:left">有什么话想对我说</h5>
+			<form id="form1" style="width:80%;margin:auto;text-align:left;" action="/message" method="post">
+				<label for="na">您的昵称：</label>
+				<input id="na" name="name" class="form-control" type="text" placeholder="请写下您的昵称">
+				<label for="wo" style="padding-top:10px;">留言：</label>
+				<textarea id="wo" name="words" class="form-control" rows="3" placeholder="请写下您想对我说的话"></textarea>
+				<label for="email" style="padding-top:10px;">邮箱：</label>
+				<input id="email" class="form-control" name="address" type="email" placeholder="请按格式填写（非必填）">
+				<br>
+				<button id="fo" type="submit" class="btn btn-primary">提交</button>	
+			</form>
+			
+		</div>
+		<div class="col-sm-4">
+			<img class="img-fluid" src="https://wx1.sinaimg.cn/mw690/006eg0Kbgy1fp4bsqopsnj30dw0opdh2.jpg">
+		</div>
+	</div>
+	<br>
+	<script type="text/javascript">
+		$('#fo').click(function(){
+			$.ajax({url:"/message",
+					type:"POST",
+					data:{
+					"name":$("#na").val(),
+					"words":$("#wo").val(),
+					"address":$("#email").val(),
+					}
+					success:function(data){
+						var k=JSON.parse(data);
+						alert(k);
+					}
+			});
+		})
+	</script>
+{% endblock %}
+		
+
